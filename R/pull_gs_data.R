@@ -9,8 +9,8 @@
 #' @importFrom data.table setDT :=
 #' @importFrom dplyr as_tibble %>%
 gs_week_process <- function(df) {
-  df <- data.table::setDT(df)
-  df[, value:=sum(value, na.rm=T), by =.(geo_value, year, week)] %>% dplyr::as_tibble()
+  df <- setDT(df)
+  df[, value := sum(value, na.rm=T), by =.(geo_value, year, week)] %>% as_tibble()
 }
 
 #'Add Locayion Name column
